@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+    </head>
+    <body>
+        <div id ="new">
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}    
+        </div>
+
+        <h1>Create User</h1>
+        <form action="/process" method="POST">
+            {% csrf_token %}
+            <p>First Name: <input type="text" name="fname"></p>
+            <p>Last Name: <input type="text" name="lname"></p>
+            <p>Email: <input type="text" name="email"></p>
+            <p>Password:<input type="password" name="pw"></p>
+            <p>Confirm Password:<input type="password" name="confpw"></p>
+            <div id="button"><input type="submit" value="Sumbit"></div>
+        </form>
+
+
+        <div id="form">
+            <h1>Login</h1>
+            <form action="/login" method="POST">
+                {% csrf_token %}
+                <p>Email:<input type="text" name="email"></p>
+                <p>Password:<input type="password" name="pw"><div id="button"></p>
+                <br><input type="submit" value="Login"></div>
+            </form>
+        </div>    
+    </body>
+</html>
